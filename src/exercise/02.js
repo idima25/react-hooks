@@ -3,22 +3,28 @@
 
 import * as React from 'react'
 
-function useLocalStorageState(key, defaultValue = ''){
+function useLocalStorageState(key, defaultValue = '', {
+  serialize=JSON.stringify,
+  deserialize=JSON.parse
+}={}
+){
 
   const [state, setState] = React.useState(() => {
     //()=> is new anonymous function
     console.log("Getting from local storage");
-    if(window.localStorage.getItem(key) !== undefined){
-      return window.localStorage.getItem(key)
+    
+    const valueFromStorage = window.localStorage.getItem(key)
+    if(valueFromStorage){
+      return deserialize(valueFromStorage)
     } else {
       return defaultValue
     }
   })
 
   React.useEffect(() => {
-    window.localStorage.setItem(key, state)   
+    window.localStorage.setItem(key, serialize(state))   
     console.log("Use effect function ran");
-  },[key, state] // array of values to monitor for change (unless it changes, effect will not execute)
+  },[key, serialize, state] // array of values to monitor for change (unless it changes, effect will not execute)
   )
   
   return [state, setState];
