@@ -1,4 +1,11 @@
 {
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#0575f5b6",
+    "titleBar.activeForeground": "#ffffff",
+    "activityBar.background": "#0575f5b6",
+    "activityBar.activeBackground": "#3388e98c",
+    "statusBar.background": "#0575f5b6"
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.detectIndentation": true,
@@ -51,8 +58,7 @@
     "rules": {
       "no-debugger": "off"
     }
-  },
-  "workbench.colorTheme": "Night Owl",
+  },  
   "workbench.iconTheme": "material-icon-theme",
   "breadcrumbs.enabled": true,
   "grunt.autoDetect": "off",
